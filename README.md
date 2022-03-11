@@ -4,7 +4,10 @@
 
 ## Integrantes del equipo
 
-[Nombres, apellidos, y usuario GitHub de los integrantes del equipo.]
+[Ines Melendez del Pozo ; InesMelendez
+Jose Luis Torres Garcia
+Javier Luengo Garcia
+Alvaro]
 
 ## Objetivos del trabajo
 
