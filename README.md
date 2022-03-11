@@ -7,7 +7,7 @@
 [Ines Melendez del Pozo ; InesMelendez
 Jose Luis Torres Garcia
 Javier Luengo Garcia
-Alvaro Requena Porcuna]
+Alvaro Requena Porcuna; alvaroorequenaa]
 
 ## Objetivos del trabajo
 
