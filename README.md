@@ -1,14 +1,14 @@
 # [Scape  Room]
 
-[Descripción breve del proyecto a realizar (2-3 frases).]
+[Vamos a realizar una sala de Scape Room donde los jugadores se tendran que enfrentar a diferentes pruebas y acertijos que deberan resolver para poder seguir adelante y poder salir y poder ganar el juego]
 
 ## Integrantes del equipo
 
 [Ines Melendez del Pozo ; InesMelendez
-Jose Luis Torres Garcia
-Javier Luengo Garcia
-Alvaro Requena Porcuna; alvaroorequenaa]
+Jose Luis Torres Garcia;
+Javier Luengo Garc ia;
+Alvaro Requena Porcuna; alvaroorequena<]
 
 ## Objetivos del trabajo
 
-[Lista de los objetivos que se persiguen con el trabajo propuesto.]
+[Crear una sala de Scape donde el jugador eliga el nivel de dificultad al que quiera jugas y mostrarle las diferentes salas y las actividades que tendra que resolver para poder continuar y poder ganar el jueg. Ademas de mostrarle las diferentes salas que debera pasar para completar el juego.]
