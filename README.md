@@ -5,8 +5,11 @@ Vamos a realizar una sala de Scape Room donde los jugadores se tendran que enfre
 ## Integrantes del equipo
 
 Ines Melendez del Pozo ; InesMelendez
+
 Jose Luis Torres Garcia;
-Javier Luengo Garc ia;
+
+Javier Luengo Garcia;
+
 Alvaro Requena Porcuna; alvaroorequena
 
 ## Objetivos del trabajo
