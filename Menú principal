@@ -3,5 +3,8 @@
 int main()
 {
 
+  printf("Bienvenidos a Scape Room");
   return 0;
+
+
 }
