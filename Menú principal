@@ -116,8 +116,7 @@ int main()
 
 void Menu_Inicial ()  //Menu de registro de usuario
 {
-	system ("cls");
-	Hora();
+
     printf ("\n\n Bienvenido a SCAPE ROOM. Seleccione una opci%cn:\n ",162) ;
     printf ("\n  1) Usuario ya registrado.");
     printf ("\n  2) Registrar un nuevo usuario.");
