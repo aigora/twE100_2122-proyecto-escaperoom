@@ -1,10 +1,130 @@
 #include<stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define M 20
+#define N 5
+
+struct RegistroUsuario
+{
+   bool registrado;
+   char username[M];
+   char password[M];
+};
+
+typedef struct RegistroUsuario usuario;
+
+//Prototipo de funciones
+void Menu_Inicial ();
+void registrar_usuario (usuario *);
+int  validar_usuario (char [], char [], usuario *);
+int  validar_usuario (char [], char [], usuario *);
+int  validar_usuario (char [], char [], usuario *);
 
 int main()
 {
+  int i=0, j=0, k=0;
+  bool exito;
+  int opcion1, opcion2;
+  char leer_nobre[M], leer_clave[M];
+  usuario user[N]
+  int es_usuario=0, intentos=3;
+  
+  for (i=0; i<N; i++) 
+	   introducir_datos_programa(user, N);
+	
+  do
+  {
+    Menu_Inicial();
+		scanf("%d",&opcion1);
+    
+    switch (opcion1)
+		{
+			case 1: 
+				intentos = 3;
+				es_usuario = 0;
 
-  printf("Bienvenidos a Scape Room");
-  return 0;
+				do 
+				{
+					exito = false;
+					printf ("\n INTRODUZCA SUS DATOS: \n\n");
+					fflush(stdin);
+					printf(" -> Nombre de usuario: ");
+					gets(leer_nombre);
+					printf(" -> Contrase%ca: ",164);
+					gets(leer_clave);
+					fflush(stdin);
+					printf("\n");
+
+					for(i=0; i<N && es_usuario==0 && intentos!=0; i++)
+					{
+					   es_usuario = validar_usuario(leer_nombre, leer_clave, &user[i]);
+				  }
+
+					if(es_usuario == 1) 
+					{
+						do
+						{
+				          printf ("\n\n                                                                          -- Bienvenido  a SCAPE ROOM --\n\n Seleccione una opci%cn: \n",162);
+				          printf ("\n 1. Dificultad baja.");
+				          printf ("\n 2. Dificultad media.");
+						      printf ("\n 3. Dificultas Alta");
+				          printf ("\n 4. Volver al menu principal.");
+				          
+	                printf("\n   Opci%cn elegida: ",162);
+					        scanf("%d",&opcion2);
+
+						  switch (opcion2)
+						  {
+						  	case 1: //Dificultad baja
+							    printf("Has seleccionado jugar en dificultad baja\n");
+						  	break;
+
+							  case 2: //Dificultad media
+							    printf("Has seleccionado jugar en dificultad media\n");
+							  break;
+
+							  case 3: //Dificultad alta
+							    printf("Has seleccionado jugar en dificultad alta\n");
+							  break;
+
+							  case 4: //volver al menu inicial
+							  break;
+
+						   } 
+						}while(opcion2 != 4);
+					}
+					else
+					{
+						printf("\n -> Nombre de usuario y%co contrase%ca incorrectos.", 47, 164);
+						printf("\n -> Quedan %d intentos.\n -> ", --intentos);
+						exito=true;
+					}
+				} while(intentos!=0 && opcion2 != 4 );
+
+			break;
+      
+			case 2: 
+      break;
+      
+ 			case 3: 
+      break;
+ 
+		}
+    
+    
+    return 0;
+}//main
 
 
+void Menu_Inicial ()  //Menu de registro de usuario
+{
+	system ("cls");
+	Hora();
+    printf ("\n\n Bienvenido a SCAPE ROOM. Seleccione una opci%cn:\n ",162) ;
+    printf ("\n  1) Usuario ya registrado.");
+    printf ("\n  2) Registrar un nuevo usuario.");
+    printf ("\n  3) Borrar usuario.");
+    printf ("\n  4) Salir del programa.");
+    printf ("\n\n Elija una opci%cn: ",162);
 }
