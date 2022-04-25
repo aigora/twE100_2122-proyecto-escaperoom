@@ -16,6 +16,7 @@ typedef struct RegistroUsuario usuario;
 
 //Prototipo de funciones
 void Menu_Inicial ();
+void registrar_usuario (usuario *); 
 
 
 int main()
@@ -33,9 +34,9 @@ int main()
   do
   {
     Menu_Inicial();
-		scanf("%d",&opcion1);
+    scanf("%d",&opcion1);
     
-    switch (opcion1)
+                switch (opcion1)
 		{
 			case 1: 
 				intentos = 3;
@@ -56,59 +57,71 @@ int main()
 					for(i=0; i<N && es_usuario==0 && intentos!=0; i++)
 					{
 					   es_usuario = validar_usuario(leer_nombre, leer_clave, &user[i]);
-				  }
+				        }
 
 					if(es_usuario == 1) 
 					{
 						do
 						{
-				          printf ("\n\n                                                                          -- Bienvenido  a SCAPE ROOM --\n\n Seleccione una opci%cn: \n",162);
-				          printf ("\n 1. Dificultad baja.");
-				          printf ("\n 2. Dificultad media.");
-						      printf ("\n 3. Dificultas Alta");
-				          printf ("\n 4. Volver al menu principal.");
+				                  printf ("\n\n                                                                          -- Bienvenido  a SCAPE ROOM --\n\n Seleccione una opci%cn: \n",162);
+				                  printf ("\n 1. Dificultad baja.");
+				                  printf ("\n 2. Dificultad media.");
+						  printf ("\n 3. Dificultas Alta");
+				                  printf ("\n 4. Volver al menu principal.");
 				          
-	                printf("\n   Opci%cn elegida: ",162);
-					        scanf("%d",&opcion2);
+	                                          printf("\n   Opci%cn elegida: ",162);
+					          scanf("%d",&opcion2);
 
-						  switch (opcion2)
-						  {
+						    switch (opcion2)
+						    {
 						  	case 1: //Dificultad baja
 							    printf("Has seleccionado jugar en dificultad baja\n");
 						  	break;
 
-							  case 2: //Dificultad media
+							case 2: //Dificultad media
 							    printf("Has seleccionado jugar en dificultad media\n");
-							  break;
+							break;
 
-							  case 3: //Dificultad alta
+							case 3: //Dificultad alta
 							    printf("Has seleccionado jugar en dificultad alta\n");
-							  break;
+							break;
 
-							  case 4: //volver al menu inicial
-							  break;
-
-						   } 
+							case 4: //volver al menu inicial
+							break;
+						    } 
 						}while(opcion2 != 4);
 					}
 					else
 					{
-						printf("\n -> Nombre de usuario y%co contrase%ca incorrectos.", 47, 164);
-						printf("\n -> Quedan %d intentos.\n -> ", --intentos);
-						exito=true;
+				             printf("\n -> Nombre de usuario y%co contrase%ca incorrectos.", 47, 164);
+					     printf("\n -> Quedan %d intentos.\n -> ", --intentos);
+					     exito=true;
 					}
 				} while(intentos!=0 && opcion2 != 4 );
-
 			break;
       
 			case 2: 
+			  exito=false;
+			  for(i=0;i<N && exito==false; i++)
+			  {
+			     if(user[i].registrado==0)
+			     {
+			         registrar_usuario(&user[i];
+				 printf("\n -> Usuario registrado con exito.\n ->");
+				 exito=true;
+			     }
+			  }
+		          if (exito == false)
+			  {
+			     printf("\n -> Acci%cn no valida. Se ha registrado el maximo numero de usuarios.\n ->",162);
+                          }	 
                         break;
       
  			case 3: 
                         break;
  
-		}
-    
+		}//switch	
+  }while(opcion1!=4);
     
     return 0;
 }//main
@@ -124,3 +137,14 @@ void Menu_Inicial ()  //Menu de registro de usuario
     printf ("\n  4) Salir del programa.");
     printf ("\n\n Elija una opci%cn: ",162);
 }
+
+void registrar_usuario(usuario *u) //Registrar usuario
+{
+   printf("\n -Introduzca nombre de usuario: ");
+   fflush(stdin);
+   gets(u->username);
+   printf("\n\n -Introduzca una contrase%ca: ",164);
+   gets(u->password);
+   u->registrado=true;
+}
+
