@@ -15,8 +15,8 @@ struct RegistroUsuario
 typedef struct RegistroUsuario usuario;
 
 //Prototipo de funciones
-void Menu_Inicial ();
-void registrar_usuario (usuario *); 
+void Menu_Inicial (); //Menu de registro
+void registrar_usuario (usuario *); //Registrar nuevo usuario
 
 
 int main()
@@ -38,7 +38,7 @@ int main()
     
                 switch (opcion1)
 		{
-			case 1: 
+			case 1: //Usuario ya registrado
 				intentos = 3;
 				es_usuario = 0;
 
@@ -88,7 +88,7 @@ int main()
 
 							case 4: //volver al menu inicial
 							break;
-						    } 
+						    } //switch opcion2
 						}while(opcion2 != 4);
 					}
 					else
@@ -100,7 +100,7 @@ int main()
 				} while(intentos!=0 && opcion2 != 4 );
 			break;
       
-			case 2: 
+			case 2: //Registrar nuevo usuario
 			  exito=false;
 			  for(i=0;i<N && exito==false; i++)
 			  {
@@ -120,14 +120,14 @@ int main()
  			case 3: 
                         break;
  
-		}//switch	
+		}//switch opcion1	
   }while(opcion1!=4);
     
     return 0;
 }//main
 
 
-void Menu_Inicial ()  //Menu de registro de usuario
+void Menu_Inicial ()  //Menu de registro 
 {
 
     printf ("\n\n Bienvenido a SCAPE ROOM. Seleccione una opci%cn:\n ",162) ;
@@ -138,7 +138,7 @@ void Menu_Inicial ()  //Menu de registro de usuario
     printf ("\n\n Elija una opci%cn: ",162);
 }
 
-void registrar_usuario(usuario *u) //Registrar usuario
+void registrar_usuario(usuario *u) //Registrar nuevo usuario
 {
    printf("\n -Introduzca nombre de usuario: ");
    fflush(stdin);
