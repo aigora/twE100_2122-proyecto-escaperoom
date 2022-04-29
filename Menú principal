@@ -17,6 +17,8 @@ typedef struct RegistroUsuario usuario;
 //Prototipo de funciones
 void Menu_Inicial (); //Menu de registro
 void registrar_usuario (usuario *); //Registrar nuevo usuario
+int  validar_usuario (char [], char [], usuario *); 
+
 
 
 int main()
@@ -118,7 +120,31 @@ int main()
                         break;
       
  			case 3: 
-                        break;
+			
+			   exito = false;
+			   printf("\n -> Introduzca la cuenta que desea eliminar: ");
+			   fflush(stdin);
+			   gets (leer_nombre);
+			   printf(" -> Introduzca contrase%ca: ",164);
+			   fflush(stdin);
+			   gets (leer_clave);
+			   fflush(stdin);
+
+			   for (i = 0, exito = false; i < N; i++)
+			     if (strcmp(user[i].username, leer_nombre) == 0 && strcmp(user[i].password, leer_clave) == 0 && user[i].registrado == true)
+			     {
+			        strcpy(user[i].username, "admin");
+				strcpy(user[i].password, "0000");
+				user[i].registrado = 0;
+				printf("\n -> Usuario eliminado.\n -> ");
+				exito = true;
+				break;
+			     }
+			     if (exito==false)
+			     {
+			        printf("\n -> Usuario no encontrado.\n -> ");
+				exito = false;
+                          break;
  
 		}//switch opcion1	
   }while(opcion1!=4);
@@ -146,5 +172,13 @@ void registrar_usuario(usuario *u) //Registrar nuevo usuario
    printf("\n\n -Introduzca una contrase%ca: ",164);
    gets(u->password);
    u->registrado=true;
+}
+
+int validar_usuario(char nombre[],char clave[],usuario *u)
+{
+   if((strcmp(nombre,u->username) == 0) && (strcmp(clave,u->password) == 0))
+   return 1;
+   else
+   return 0;
 }
 
