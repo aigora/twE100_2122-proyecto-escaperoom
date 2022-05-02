@@ -18,7 +18,8 @@ typedef struct RegistroUsuario usuario;
 void Menu_Inicial (); //Menu de registro
 void registrar_usuario (usuario *); //Registrar nuevo usuario
 int  validar_usuario (char [], char [], usuario *); 
-
+void introducir_datos_programa (usuario [], int dim);
+void introducir_datos_fichero (usuario []);
 
 
 int main()
@@ -26,6 +27,7 @@ int main()
   int i=0, j=0, k=0;
   bool exito;
   int opcion1, opcion2;
+  
   char leer_nobre[M], leer_clave[M];
   usuario user[N]
   int es_usuario=0, intentos=3;
@@ -148,8 +150,14 @@ int main()
  
 		}//switch opcion1	
   }while(opcion1!=4);
-    
-    return 0;
+  
+  introducir_datos_fichero (user);
+  
+  printf(" Fin del programa.\n");
+
+  printf("\n\n");
+  system("pause");
+  return 0;
 }//main
 
 
@@ -164,6 +172,7 @@ void Menu_Inicial ()  //Menu de registro
     printf ("\n\n Elija una opci%cn: ",162);
 }
 
+
 void registrar_usuario(usuario *u) //Registrar nuevo usuario
 {
    printf("\n -Introduzca nombre de usuario: ");
@@ -174,11 +183,74 @@ void registrar_usuario(usuario *u) //Registrar nuevo usuario
    u->registrado=true;
 }
 
+
 int validar_usuario(char nombre[],char clave[],usuario *u)
 {
    if((strcmp(nombre,u->username) == 0) && (strcmp(clave,u->password) == 0))
-   return 1;
+       return 1;
    else
-   return 0;
+       return 0;
 }
+
+
+void introducir_datos_programa (usuario u[],int dim)
+{
+   int i;
+   char nombre[M];
+   char clave[M];
+   int reg;
+
+   FILE *entrada = fopen("DATOS_DE_USUARIO.txt","r");
+
+   if(entrada == NULL)
+      printf("\n No se pudo abrir el fichero.\n");
+   else
+   {
+      while(!feof(entrada))
+      {
+	for(i=0; i<dim; i++)
+        {
+	   fscanf(entrada, "%d %s %s\n", &reg, nombre, clave);
+
+	   if(reg==1)
+	   {
+	   u[i].registrado = reg;
+	   strcpy(u[i].username, nombre);
+	   strcpy(u[i].password, clave);
+	   }
+	   else
+	   {
+	   u[i].registrado = 0;
+	   strcpy(u[i].username, "admin");
+	   strcpy(u[i].password, "0000");
+	   }
+	}
+      }
+   }
+   fclose(entrada);
+}
+
+
+void introducir_datos_fichero (usuario u[])
+{
+   int i;
+
+   FILE *salida=fopen("DATOS_DE_USUARIO2.txt", "w");
+
+   if(salida == NULL)
+	printf("\nEl fichero no pudo ser abierto.\n");
+   else
+   {
+      for(i=0; i<N; i++)
+      {
+	 if (u[i].registrado == true)
+	 fprintf(salida, "%d %s %s\n", u[i].registrado, u[i].username, u[i].password);
+
+         if (u[i].registrado == false)
+	 fprintf(salida, "%d ----- -----\n", u[i].registrado);
+      }
+    }
+    fclose(salida);
+}
+
 
