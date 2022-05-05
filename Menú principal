@@ -5,6 +5,8 @@
 #define M 20
 #define N 5
 
+FILE *fd;
+
 struct RegistroUsuario
 {
    bool registrado;
@@ -14,13 +16,17 @@ struct RegistroUsuario
 
 typedef struct RegistroUsuario usuario;
 
-//Prototipo de funciones
+//PROTOTIPOS DE FUNCIONES
+
 void Menu_Inicial (); //Menu de registro
 void registrar_usuario (usuario *); //Registrar nuevo usuario
 int  validar_usuario (char [], char [], usuario *); 
 void introducir_datos_programa (usuario [], int dim);
 void introducir_datos_fichero (usuario []);
 
+void WelcomeScapeRoom();
+void PuertaScape();
+void InicioJuego();
 
 int main()
 {
@@ -32,6 +38,8 @@ int main()
   usuario user[N]
   int es_usuario=0, intentos=3;
   
+  
+  WelcomeScapeRoom();
   for (i=0; i<N; i++) 
 	   introducir_datos_programa(user, N);
 	
@@ -65,8 +73,10 @@ int main()
 
 					if(es_usuario == 1) 
 					{
+						InicioJuego();
 						do
 						{
+						  PuertaScape();
 				                  printf ("\n\n                                                                          -- Bienvenido  a SCAPE ROOM --\n\n Seleccione una opci%cn: \n",162);
 				                  printf ("\n 1. Dificultad baja.");
 				                  printf ("\n 2. Dificultad media.");
@@ -92,6 +102,7 @@ int main()
 
 							case 4: //volver al menu inicial
 							break;
+							
 						    } //switch opcion2
 						}while(opcion2 != 4);
 					}
@@ -251,6 +262,26 @@ void introducir_datos_fichero (usuario u[])
       }
     }
     fclose(salida);
+}
+
+//Funciones dibujo de ficheros 
+void WelcomeScapeRoom()
+{
+   int c;
+   fd = fopen("WelcomeScapeRoom.txt", "r"); // imagen TMT
+
+   if (fd == NULL)
+     printf("\n Archivo no encontrado.");
+
+   while((c = getc(fd)) != EOF)
+   {
+	if (c == '\n')
+          printf("\n");
+	else if (c == '\0')
+	  printf("\0");
+	else
+	  putchar(c);
+   }
 }
 
 
