@@ -265,6 +265,7 @@ void introducir_datos_fichero (usuario u[])
 }
 
 //Funciones dibujo de ficheros 
+
 void WelcomeScapeRoom()
 {
    int c;
@@ -284,4 +285,25 @@ void WelcomeScapeRoom()
    }
 }
 
+
+void PuertaScape()
+{
+   int c;
+   fd = fopen("PuertaScape.txt", "r");
+
+   if (fd == NULL) 
+      printf("\nNo se pudo encontrar el archivo.");
+
+   while((c = getc(fd)) != EOF)
+   {
+	if (c == '\n')
+          printf("\n");
+
+	else if (c == '\0')
+	  printf("\0");
+
+	else
+	  putchar(c);
+   }
+}
 
