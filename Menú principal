@@ -307,3 +307,28 @@ void PuertaScape()
    }
 }
 
+void InicioJuego()
+{
+   int c;
+
+   fd = fopen("InicioJuego.txt", "r");
+
+   if (fd == NULL)
+      printf("\nEl fichero no pudo ser abierto.");
+
+   while ((c = getc(fd)) != EOF)
+   {
+	if (c == '\n')
+          printf("\n");
+
+	else if( c== '\0')
+	  printf("\0");
+
+	else
+	  putchar(c);
+   }
+
+  printf("\n\n");
+	
+}
+
