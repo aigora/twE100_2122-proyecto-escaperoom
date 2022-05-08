@@ -28,7 +28,7 @@ void WelcomeScapeRoom();
 void PuertaScape();
 void InicioJuego();
 
-int main()
+int main (void)
 {
   int i=0, j=0, k=0;
   bool exito;
@@ -38,11 +38,12 @@ int main()
   usuario user[N]
   int es_usuario=0, intentos=3;
   
-  
+  system("color E");
   WelcomeScapeRoom();
   system("\n\n PAUSE");
   for (i=0; i<N; i++) 
      introducir_datos_programa(user, N);
+  system("color E");
 	
   do
   {
@@ -80,6 +81,7 @@ int main()
 						do
 						{
 						  system ("cls");
+						  system ("color 0");
 						  PuertaScape();
 				                  printf ("\n\n                                                                          -- Bienvenido  a SCAPE ROOM --\n\n Seleccione una opci%cn: \n",162);
 				                  printf ("\n 1. Dificultad baja.");
