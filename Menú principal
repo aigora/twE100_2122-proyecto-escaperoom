@@ -5,56 +5,66 @@
 #define M 20
 #define N 5
 
-FILE *fd;
+
+FILE  *fd;//ficheros de dibujo
 
 struct RegistroUsuario
 {
-   bool registrado;
-   char username[M];
-   char password[M];
+	bool registrado;
+	char username[M];
+	char password[M];
 };
 
 typedef struct RegistroUsuario usuario;
 
-//PROTOTIPOS DE FUNCIONES
 
-void Menu_Inicial (); //Menu de registro
-void registrar_usuario (usuario *); //Registrar nuevo usuario
-int  validar_usuario (char [], char [], usuario *); 
+//Prototipos de funciones
+void Menu_Inicial (); //Menu de registro de usuario
+void registrar_usuario (usuario *); //Funcion para registrar nuevos usuarios
+int  validar_usuario (char [], char [], usuario *); //Funcion para comprobar que el usuario esta registrado
 void introducir_datos_programa (usuario [], int dim);
 void introducir_datos_fichero (usuario []);
 
-void WelcomeScapeRoom();
-void PuertaScape();
+void Hora(); //Funcion para mostrar la hora en pantalla
+
+//Funciones de dibujo de fichero
+void WelcomeScapeRoom(); // Welcome to TMT
+void PuertaScape(); // Dibujo del almacen
 void InicioJuego();
+
 
 int main (void)
 {
-  int i=0, j=0, k=0;
-  bool exito;
-  int opcion1, opcion2;
-  
-  char leer_nobre[M], leer_clave[M];
-  usuario user[N]
-  int es_usuario=0, intentos=3;
-  
-  system("color E");
-  WelcomeScapeRoom();
-  system("\n\n PAUSE");
-  for (i=0; i<N; i++) 
-     introducir_datos_programa(user, N);
-  system("color E");
-	
-  do
-  {
-    system("cls");
-    Menu_Inicial();
-    scanf("%d",&opcion1);
-    
-                switch (opcion1)
+
+	int i=0, j=0, k=0;
+	bool exito;
+
+	int opcion1, opcion2;
+
+	char leer_nombre[M];
+	char leer_clave[M];
+	usuario user[N];
+	int es_usuario = 0;
+	int intentos=3;
+
+
+	system("color E");
+	WelcomeScapeRoom();
+	system("\n\n PAUSE");
+	for (i=0; i<N; i++)  
+	   introducir_datos_programa(user, N);
+	system("color E");
+
+	do
+	{
+		system("cls");
+		Menu_Inicial(); 
+		scanf("%d",&opcion1);
+
+		switch (opcion1)
 		{
 			case 1: //Usuario ya registrado
-				intentos = 3;
+				intentos = 3; //3 intentos para introducir datos
 				es_usuario = 0;
 
 				do 
@@ -75,124 +85,232 @@ int main (void)
 					   es_usuario = validar_usuario(leer_nombre, leer_clave, &user[i]);
 				        }
 
-					if(es_usuario == 1) 
+
+					if(es_usuario == 1) //SI EL USUARIO INTRODUCIDO ES CORRECTO ACCEDEMOS AL PROGRAMA
 					{
+
 						InicioJuego();
 						do
 						{
-						  system ("cls");
-						  system ("color 0");
-						  PuertaScape();
-				                  printf ("\n\n                                                                          -- Bienvenido  a SCAPE ROOM --\n\n Seleccione una opci%cn: \n",162);
-				                  printf ("\n 1. Dificultad baja.");
-				                  printf ("\n 2. Dificultad media.");
-						  printf ("\n 3. Dificultas Alta");
-				                  printf ("\n 4. Volver al menu principal.");
+					         system ("cls");
+					         system("color 0");
+					         Hora();
+						 PuertaScape();
+				                 printf ("\n\n                                                                          -- Bienvenido  a SCAPE ROOM --\n\n Seleccione una opci%cn: \n",162);
+				                 printf ("\n 1. Dificultad baja.");
+				                 printf ("\n 2. Dificultad media.");
+						 printf ("\n 3. Dificultas Alta");
+				                 printf ("\n 4. Volver al menu principal.");
 				          
-	                                          printf("\n   Opci%cn elegida: ",162);
-					          scanf("%d",&opcion2);
+	                                         printf("\n   Opci%cn elegida: ",162);
+					         scanf("%d",&opcion2);
 
-						    switch (opcion2)
-						    {
-						  	case 1: //Dificultad baja
-							    system ("cls");
-							    printf("Has seleccionado jugar en dificultad baja\n");
-							    system ("pause");
-						  	break;
+						switch (opcion2) 
+					           {
+							case 1: //Dificultad baja
+							   system ("cls");
+							   printf("Has seleccionado jugar en dificultad baja\n");
+							   system ("pause");
+							break;
 
 							case 2: //Dificultad media
-							    system ("cls");
-							    printf("Has seleccionado jugar en dificultad media\n");
-							    system ("pause");
+							   system ("cls");
+							   printf("Has seleccionado jugar en dificultad media\n");
+							   system ("pause");
 							break;
 
 							case 3: //Dificultad alta
-							    system ("cls");
-							    printf("Has seleccionado jugar en dificultad alta\n");
-							    system ("pause")
+						           system ("cls");
+							   printf("Has seleccionado jugar en dificultad alta\n");
+							   system ("pause");
 							break;
 
 							case 4: //volver al menu inicial
 							break;
-							
-						    } //switch opcion2
+
+					            } //switch opcion 2
 						}while(opcion2 != 4);
 					}
 					else
 					{
-				             printf("\n -> Nombre de usuario y%co contrase%ca incorrectos.", 47, 164);
-					     printf("\n -> Quedan %d intentos.\n -> ", --intentos);
-					     system ("pause");
-					     exito=true;
+					    printf("\n -> Nombre de usuario y%co contrase%ca incorrectos.", 47, 164);
+				            printf("\n -> Quedan %d intentos.\n -> ", --intentos);
+				            system ("pause");
+					    exito=true;
 					}
 				} while(intentos!=0 && opcion2 != 4 );
+
 			break;
-      
-			case 2: //Registrar nuevo usuario
-			  exito=false;
-			  for(i=0;i<N && exito==false; i++)
-			  {
-			     if(user[i].registrado==0)
-			     {
-			         registrar_usuario(&user[i];
-				 printf("\n -> Usuario registrado con exito.\n ->");
-				 exito=true;
-				 system ("pause");
-			     }
-			  }
-		          if (exito == false)
-			  {
-			     printf("\n -> Acci%cn no valida. Se ha registrado el maximo numero de usuarios.\n ->",162);
-			     system ("pause");
-                          }	 
-                        break;
-      
- 			case 3: 
-			
-			   exito = false;
-			   printf("\n -> Introduzca la cuenta que desea eliminar: ");
-			   fflush(stdin);
-			   gets (leer_nombre);
-			   printf(" -> Introduzca contrase%ca: ",164);
-			   fflush(stdin);
-			   gets (leer_clave);
-			   fflush(stdin);
 
-			   for (i = 0, exito = false; i < N; i++)
-			     if (strcmp(user[i].username, leer_nombre) == 0 && strcmp(user[i].password, leer_clave) == 0 && user[i].registrado == true)
-			     {
-			        strcpy(user[i].username, "admin");
-				strcpy(user[i].password, "0000");
-				user[i].registrado = 0;
-				printf("\n -> Usuario eliminado.\n -> ");
-				exito = true;
-				system ("pause");
+
+			case 2:  //Registrar usuario
+				exito=false;
+				for(i = 0; i < N && exito == false; i++)
+				{
+					if(user[i].registrado == 0)
+					{
+					    registrar_usuario(&user[i]);
+				            printf("\n -> Usuario registrado con exito.\n ->");
+					    exito=true;
+					    system ("pause");
+					}
+				}
+				if (exito == false)
+				{
+				  printf("\n -> Acci%cn no valida. Se ha registrado el maximo numero de usuarios.\n ->",162);
+				  system ("pause");
+			        }
+
 				break;
-			     }
-			     if (exito==false)
-			     {
-			        printf("\n -> Usuario no encontrado.\n -> ");
+
+			case 3: //Eliminar usuario
+
 				exito = false;
-				system ("pause");
-                          break;
- 
-		}//switch opcion1	
-  }while(opcion1!=4);
-  
-  introducir_datos_fichero (user);
-  
-  printf(" Fin del programa.\n");
+				printf("\n -> Introduzca la cuenta que desea eliminar: ");
+				fflush(stdin);
+				gets (leer_nombre);
+				printf(" -> Introduzca contrase%ca: ",164);
+				fflush(stdin);
+				gets (leer_clave);
+				fflush(stdin);
 
-  printf("\n\n");
-  system ("pause");
-  return 0;
-  
-}//main
+				for (i = 0, exito = false; i < N; i++)
+
+				if (strcmp(user[i].username, leer_nombre) == 0 && strcmp(user[i].password, leer_clave) == 0 && user[i].registrado == true)
+				    {
+				    	strcpy(user[i].username, "admin");
+				    	strcpy(user[i].password, "0000");
+				    	user[i].registrado = 0;
+				    	printf("\n -> Usuario eliminado.\n -> ");
+				    	exito = true;
+				    	system ("pause");
+				    	break;
+				    }
+				if (exito==false)
+				    {
+					printf("\n -> Usuario no encontrado.\n -> ");
+				        exito = false;
+					system("pause");
+				    }
+			break;
+		}//switch opcion 1
+	}while(opcion1 != 4);
+
+    introducir_datos_fichero (user);
+
+    printf(" Fin del programa.\n");
+
+    printf("\n\n");
+    system("pause");
+    return 0;
+}
 
 
-void Menu_Inicial ()  //Menu de registro 
+void WelcomeScapeRoom()
+{
+     int c;
+     fd = fopen("WelcomeScapeRoom.txt", "r"); // imagen TMT
+
+     if (fd == NULL)
+	printf("\n Archivo no encontrado.");
+
+     while((c = getc(fd)) != EOF)
+     {
+         if (c == '\n')
+            printf("\n");
+         else if (c == '\0')
+            printf("\0");
+         else
+            putchar(c);
+     }
+}
+
+
+void PuertaScape()
+{
+     int c;
+     fd = fopen("PuertaScape.txt", "r");
+
+     if (fd == NULL)
+	printf("\nNo se pudo encontrar el archivo.");
+
+     while((c = getc(fd)) != EOF)
+     {
+        if (c == '\n')
+	   printf("\n");
+
+	else if (c == '\0')
+	   printf("\0");
+
+	else
+	  putchar(c);
+     }
+}
+
+
+void InicioJuego()
+{
+      int c;
+
+      system ("cls");
+      system ("color E");
+
+      fd = fopen("InicioJuego.txt", "r");
+
+      if (fd == NULL)
+      printf("\nEl fichero no pudo ser abierto.");
+
+      while ((c = getc(fd)) != EOF)
+      {
+        if (c == '\n')
+           printf("\n");
+
+	else if( c== '\0')
+           printf("\0");
+
+	else
+          putchar(c);
+      }
+
+      printf("\n\n");
+      system ("pause");
+}
+
+
+void Hora()
+{
+      time_t t;
+      struct tm *tm;
+      char fecha_dia[100];
+      t = time(NULL);
+      tm = localtime(&t);
+      strftime(fecha_dia, 100, "%d/%m/%Y", tm);
+      printf("\n Fecha actual: %s", fecha_dia);
+}
+
+
+void registrar_usuario(usuario *u)
+{
+      printf("\n -Introduzca nombre de usuario: ");
+      fflush(stdin);
+      gets(u->username);
+      printf("\n\n -Introduzca una contrase%ca: ",164);
+      gets(u->password);
+      u->registrado=true;
+}
+
+int validar_usuario(char nombre[],char clave[],usuario *u)
+{
+      if((strcmp(nombre,u->username) == 0) && (strcmp(clave,u->password) == 0))
+        return 1;
+      else
+      return 0;
+}
+
+void Menu_Inicial ()  //Menu de registro de usuario
 {
     system ("cls");
+    Hora();
     printf ("\n\n Bienvenido a SCAPE ROOM. Seleccione una opci%cn:\n ",162) ;
     printf ("\n  1) Usuario ya registrado.");
     printf ("\n  2) Registrar un nuevo usuario.");
@@ -201,153 +319,63 @@ void Menu_Inicial ()  //Menu de registro
     printf ("\n\n Elija una opci%cn: ",162);
 }
 
-
-void registrar_usuario(usuario *u) //Registrar nuevo usuario
-{
-   printf("\n -Introduzca nombre de usuario: ");
-   fflush(stdin);
-   gets(u->username);
-   printf("\n\n -Introduzca una contrase%ca: ",164);
-   gets(u->password);
-   u->registrado=true;
-}
-
-
-int validar_usuario(char nombre[],char clave[],usuario *u)
-{
-   if((strcmp(nombre,u->username) == 0) && (strcmp(clave,u->password) == 0))
-       return 1;
-   else
-       return 0;
-}
-
-
 void introducir_datos_programa (usuario u[],int dim)
 {
-   int i;
-   char nombre[M];
-   char clave[M];
-   int reg;
+      int i;
+      char nombre[M];
+      char clave[M];
+      int reg;
+      
+      FILE *entrada = fopen("DATOS_DE_USUARIO.txt","r");
 
-   FILE *entrada = fopen("DATOS_DE_USUARIO.txt","r");
-
-   if(entrada == NULL)
-      printf("\n No se pudo abrir el fichero.\n");
-   else
-   {
-      while(!feof(entrada))
+      if(entrada == NULL)
+	 printf("\n No se pudo abrir el fichero.\n");
+      else
       {
-	for(i=0; i<dim; i++)
-        {
-	   fscanf(entrada, "%d %s %s\n", &reg, nombre, clave);
+	   while(!feof(entrada))
+	   {
+		for(i=0; i<dim; i++)
+		{
+	            fscanf(entrada, "%d %s %s\n", &reg, nombre, clave);
 
-	   if(reg==1)
-	   {
-	    u[i].registrado = reg;
-	    strcpy(u[i].username, nombre);
-	    strcpy(u[i].password, clave);
+		    if(reg==1)
+		    {
+			u[i].registrado = reg;
+			strcpy(u[i].username, nombre);
+			strcpy(u[i].password, clave);
+		    }
+		    else
+		    {
+			u[i].registrado = 0;
+			strcpy(u[i].username, "admin");
+			strcpy(u[i].password, "0000");
+		    }
+	        }
 	   }
-	   else
-	   {
-	    u[i].registrado = 0;
-	    strcpy(u[i].username, "admin");
-	    strcpy(u[i].password, "0000");
-	   }
-	}
       }
-   }
-   fclose(entrada);
+      fclose(entrada);
 }
 
 
 void introducir_datos_fichero (usuario u[])
 {
-   int i;
+      int i;
 
-   FILE *salida=fopen("DATOS_DE_USUARIO2.txt", "w");
+      FILE *salida=fopen("DATOS_DE_USUARIO2.txt", "w");
 
-   if(salida == NULL)
-	printf("\nEl fichero no pudo ser abierto.\n");
-   else
-   {
-      for(i=0; i<N; i++)
+      if(salida == NULL)
+	 printf("\nEl fichero no pudo ser abierto.\n");
+      else
       {
-	 if (u[i].registrado == true)
-	 fprintf(salida, "%d %s %s\n", u[i].registrado, u[i].username, u[i].password);
+	 for(i=0; i<N; i++)
+	 {
+	      if (u[i].registrado == true)
+		  fprintf(salida, "%d %s %s\n", u[i].registrado, u[i].username, u[i].password);
 
-         if (u[i].registrado == false)
-	 fprintf(salida, "%d ----- -----\n", u[i].registrado);
+	      if (u[i].registrado == false)
+		  fprintf(salida, "%d ----- -----\n", u[i].registrado);
+	}
       }
-    }
-    fclose(salida);
-}
-
-//Funciones dibujo de ficheros 
-
-void WelcomeScapeRoom()
-{
-   int c;
-   fd = fopen("WelcomeScapeRoom.txt", "r"); // imagen TMT
-
-   if (fd == NULL)
-     printf("\n Archivo no encontrado.");
-
-   while((c = getc(fd)) != EOF)
-   {
-	if (c == '\n')
-          printf("\n");
-	else if (c == '\0')
-	  printf("\0");
-	else
-	  putchar(c);
-   }
-}
-
-
-void PuertaScape()
-{
-   int c;
-   fd = fopen("PuertaScape.txt", "r");
-
-   if (fd == NULL) 
-      printf("\nNo se pudo encontrar el archivo.");
-
-   while((c = getc(fd)) != EOF)
-   {
-	if (c == '\n')
-          printf("\n");
-
-	else if (c == '\0')
-	  printf("\0");
-
-	else
-	  putchar(c);
-   }
-}
-
-void InicioJuego()
-{
-   int c;
-
-   fd = fopen("InicioJuego.txt", "r");
-
-   if (fd == NULL)
-      printf("\nEl fichero no pudo ser abierto.");
-
-   while ((c = getc(fd)) != EOF)
-   {
-	if (c == '\n')
-          printf("\n");
-
-	else if( c== '\0')
-	  printf("\0");
-
-	else
-	  putchar(c);
-   }
-
-  printf("\n\n");
-  system ("pause");
-	
+      fclose(salida);
 }
 
