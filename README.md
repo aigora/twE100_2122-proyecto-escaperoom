@@ -6,7 +6,7 @@ Vamos a realizar una sala de Scape Room donde los jugadores se tendran que enfre
 
 Ines Melendez del Pozo ; InesMelendez
 
-Jose Luis Torres Garcia;
+Jose Luis Torres Garcia; Cholis2020
 
 Javier Luengo Garcia;
 
