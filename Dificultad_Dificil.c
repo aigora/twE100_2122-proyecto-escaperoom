@@ -2,7 +2,7 @@
 
 int main()
 {
-   char preguntas[][100] = {"1. Cual es el lugar mas frio de la tierra?: ",
+   char preguntas3[][100] = {"1. Cual es el lugar mas frio de la tierra?: ",
                             "2. Quien escribio La Odisea?:",
                             "3. Cual es el rio mas largo del mundo?:",
                             "4. En que continente esta equador?:",
@@ -18,9 +18,9 @@ int main()
                             "14. En la mitologia griega, quien mato a Aquiles?:",
                             "15. Gracias a qué ganó Albert Einstein el Premio Nobel?:"};
 
-   char opciones[][100] = {"A. Rusia", "B. Antartida", "C. Polo Norte", "D. Asia",
+   char opciones3[][100] = {"A. Rusia", "B. Antartida", "C. Polo Norte", "D. Asia",
                           "A. Homero", "B. Becquer", "C. Gongora", "D. Quevedo",
-                          "A. Amazonas", "B. Tajo", "C. Nilo", "D.Guadarquibir",
+                          "A. Amazonas", "B. Tajo", "C. Nilo", "D.Guadalquivir",
                           "A. Europa", "B. Asia", "C. America", "D. Oceania",
                           "A. Mark Spitz", "B. Jenny Thompson", "C. Larisa Latynina", "D. Michael Phelps",
                           "A. 198", "B. 565", "C. 300", "D. 206",
@@ -34,21 +34,21 @@ int main()
                           "A. Zeus.", "B. Hades.", "C. Paris", "D. Hefestos",
                           "A. Ley del efecto fotoelectrico.", "B. La teoría de la relatividad especial", "C. Teoría de campo unificado", "D. Movimiento Browniano"};
 
-   char respuestas[] = {'B', 'A', 'A','C','D','D','C','B','C', 'A', 'B', 'B','A','C','A'};
-   int numerodepreguntas = sizeof(preguntas)/sizeof(preguntas[0]);
+   char respuestas3[] = {'B', 'A', 'A','C','D','D','C','B','C', 'A', 'B', 'B','A','C','A'};
+   int numerodepreguntas3 = sizeof(preguntas3)/sizeof(preguntas3[0]);
 
    char adivina;
    int puntuacion=0;
 
-   for(int i = 0; i < numerodepreguntas; i++)
+   for(int i = 0; i < numerodepreguntas3; i++)
    {
 
-        printf("%s\n", preguntas[i]);
+        printf("%s\n", preguntas3[i]);
 
 
       for(int j = (i * 4); j < (i * 4) + 4; j++)
       {
-         printf("%s\n", opciones[j]);
+         printf("%s\n", opciones3[j]);
       }
 
       printf("adivina: ");
@@ -57,7 +57,7 @@ int main()
 
       adivina = toupper(adivina);
 
-      if(adivina == respuestas[i])
+      if(adivina == respuestas3[i])
       {
          printf("Respuesta Correcta!\n");
          printf("\n");
@@ -72,7 +72,7 @@ int main()
       }
    }
    printf("************************\n");
-   printf("Resultado final: %d/%d\n", puntuacion, numerodepreguntas);
+   printf("Resultado final: %d/%d\n", puntuacion, numerodepreguntas3);
    printf("************************\n");
 
     if(puntuacion>=7)
