@@ -9,6 +9,7 @@
 
 FILE  *fd;//ficheros de dibujo
 
+//ESTRUCTURAS
 struct RegistroUsuario
 {
 	bool registrado;
@@ -17,6 +18,7 @@ struct RegistroUsuario
 };
 
 typedef struct RegistroUsuario usuario;
+
 
 
 //CABECERAS DE FUNCIONES
@@ -33,6 +35,7 @@ void PuertaScape(); // Dibujo del almacen
 void InicioJuego();
 
 
+
 int main (void)
 {
 
@@ -41,6 +44,7 @@ int main (void)
 	int k=0;
 	bool exito;
 
+    
 	int opcion1; //Menu de usuarios
         int opcion2; //menu opciones
 
@@ -51,6 +55,7 @@ int main (void)
 	int es_usuario = 0;
 	int intentos=3;
 
+	
 	char preguntas1[][100] = {"1. Cuando se llego a America por primera vez?: ",
                             "2. En que siglo se escribio la Celestina?:",
                             "3. Cual es la capital de Italia?:",
@@ -67,28 +72,28 @@ int main (void)
                             "A. Lionel Messi", "B. Neymar", "C. Cristiano Ronaldo", "D. Diego Maradona",
                             "A. 100", "B. 102", "C. 116", "D. 115"};
 
-	char respuestas1[] = {'A', 'A', 'B','D','B','A','C'};
-	int numerodepreguntas1 = sizeof(preguntas1)/sizeof(preguntas1[0]);
+   char respuestas1[] = {'A', 'A', 'B','D','B','A','C'};
+   int numerodepreguntas1 = sizeof(preguntas1)/sizeof(preguntas1[0]);
 
 
-	char preguntas2[][100] = {"1. Cuando se aprobo la primera Constitucion Espanola?: ",
+   char preguntas2[][100] = {"1. Cuando se aprobo la primera Constitucion Espanola?: ",
                             "2. Quien escribio poeta en Nueva York?:",
                             "3. Cual es la capital de Letonia?:",
                             "4. que es un polinomio?:",
                             "5. Cuando se crearon los juegos olimpicos?:"};
 
-	char opciones2[][100] = {"A. 1526", "B. 1812", "C. 1932", "D. 1978",
+   char opciones2[][100] = {"A. 1526", "B. 1812", "C. 1932", "D. 1978",
                             "A. Lorca", "B. Becquer", "C.Gongora", "D. Quevedo",
                             "A. Estonia", "B. Tallin", "C. Riga", "D. Palermo",
                             "A. una ecuacion", "B. un conjunto de monomios", "C. una ecuacion racional", "D. una ecuacion irracional",
                             "A. 1930", "B. 1896", "C. 1755", "D. 1495"};
 
-	char respuestas2[] = {'B', 'A', 'C','D','B'};
-	int numerodepreguntas2 = sizeof(preguntas2)/sizeof(preguntas2[0]);
+   char respuestas2[] = {'B', 'A', 'C','D','B'};
+   int numerodepreguntas2 = sizeof(preguntas2)/sizeof(preguntas2[0]);
 
 
 
-	char preguntas3[][100] = {"1. Cual es el lugar mas frio de la tierra?: ",
+   char preguntas3[][100] = {"1. Cual es el lugar mas frio de la tierra?: ",
                             "2. Quien escribio La Odisea?:",
                             "3. Cual es el rio mas largo del mundo?:",
                             "4. En que continente esta equador?:",
@@ -104,7 +109,7 @@ int main (void)
                             "14. En la mitologia griega, quien mato a Aquiles?:",
                             "15. Gracias a qué ganó Albert Einstein el Premio Nobel?:"};
 
-	char opciones3[][100] = {"A. Rusia", "B. Antartida", "C. Polo Norte", "D. Asia",
+   char opciones3[][100] = {"A. Rusia", "B. Antartida", "C. Polo Norte", "D. Asia",
                             "A. Homero", "B. Becquer", "C. Gongora", "D. Quevedo",
                             "A. Amazonas", "B. Tajo", "C. Nilo", "D.Guadalquivir",
                             "A. Europa", "B. Asia", "C. America", "D. Oceania",
@@ -120,11 +125,11 @@ int main (void)
                             "A. Zeus.", "B. Hades.", "C. Paris", "D. Hefestos",
                             "A. Ley del efecto fotoelectrico.", "B. La teoría de la relatividad especial", "C. Teoría de campo unificado", "D. Movimiento Browniano"};
 
-	char respuestas3[] = {'B', 'A', 'A','C','D','D','C','B','C', 'A', 'B', 'B','A','C','A'};
-	int numerodepreguntas3 = sizeof(preguntas3)/sizeof(preguntas3[0]);
+   char respuestas3[] = {'B', 'A', 'A','C','D','D','C','B','C', 'A', 'B', 'B','A','C','A'};
+   int numerodepreguntas3 = sizeof(preguntas3)/sizeof(preguntas3[0]);
 
-	char adivina;
-	int puntuacion;
+   char adivina;
+   int puntuacion;
 
 	///////// INICIO DEL PROGRAMA ///////// 
 
@@ -132,7 +137,7 @@ int main (void)
 	WelcomeScapeRoom();
 	system("\n\n PAUSE");
 	for (i=0; i<N; i++) 
-	introducir_datos_programa(user, N);
+	   introducir_datos_programa(user, N);
 	system("color E");
 
 	do
@@ -143,7 +148,7 @@ int main (void)
 
 		switch (opcion1)
 		{
-			case 1: //USUARIO YA REGISTRADO
+			case 1: //USUARIO YA REGISTRAD0
 				intentos = 3; //3 intentos para introducir datos
 				es_usuario = 0;
 
@@ -174,173 +179,176 @@ int main (void)
 						InicioJuego();
 						do
 						{
-					          system ("cls");
-					          system("color 0");
-					          Hora();
-						  PuertaScape();
-				                  printf ("\n\n                                                                          -- Bienvenido  a SCAPE ROOM --\n\n Seleccione una opci%cn: \n",162);
-				                  printf ("\n 1. Dificultad baja.");
-				                  printf ("\n 2. Dificultad media.");
-						  printf ("\n 3. Dificultas Alta");
-				                  printf ("\n 4. Volver al menu principal.");
+					        system ("cls");
+					        system("color 0");
+					        Hora();
+						PuertaScape();
+				                printf ("\n\n                                                                          -- Bienvenido  a SCAPE ROOM --\n\n Seleccione una opci%cn: \n",162);
+				                printf ("\n 1. Dificultad baja.");
+				                printf ("\n 2. Dificultad media.");
+						printf ("\n 3. Dificultas Alta");
+				                printf ("\n 4. Volver al menu principal.");
 
-	                                          printf("\n   Opci%cn elegida: ",162);
-					          scanf("%d",&opcion2);
+	                                        printf("\n   Opci%cn elegida: ",162);
+					        scanf("%d",&opcion2);
 
-						  switch (opcion2)
-						  {
-							 case 1: //Dificultad baja
+						switch (opcion2)
+							{
+							case 1: //Dificultad baja
 							   system ("cls");
 							   fflush(stdin);
 							   puntuacion=0;
 							   printf("Has seleccionado jugar en dificultad baja\n");
-							   for(int i = 0; i < numerodepreguntas1; i++)
-                                                           {
-                                                             printf("%s\n", preguntas1[i]);
+							         for(int i = 0; i < numerodepreguntas1; i++)
+                                     {
+                                        printf("%s\n", preguntas1[i]);
 
-                                                               for(int j = (i * 4); j < (i * 4) + 4; j++)
-                                                               {
-                                                                 printf("%s\n", opciones1[j]);
-                                                               }
+                                        for(int j = (i * 4); j < (i * 4) + 4; j++)
+                                        {
+                                           printf("%s\n", opciones1[j]);
+                                        }
 
-                                                               printf("adivina: ");
-                                                               scanf("%c", &adivina);
-                                                               scanf("%c");
+                                           printf("adivina: ");
+                                           scanf("%c", &adivina);
+                                           scanf("%c");
 
-                                                               adivina = toupper(adivina);
+                                           adivina = toupper(adivina);
 
-                                                               if(adivina == respuestas1[i])
-                                                               {
-                                                                printf("Respuesta Correcta!\n");
-                                                                printf("\n");
-                                                                puntuacion++;
-                                                               }
-                                                               else
-                                                               {
-                                                                printf("Respuesta Incorrecta!\n");
-                                                                printf("\n");
-                                                                puntuacion=puntuacion-1;
-                                                               }
-                                                           }
+                                        if(adivina == respuestas1[i])
+                                        {
+                                          printf("Respuesta Correcta!\n");
+                                          printf("\n");
+                                          puntuacion++;
+                                        }
+                                        else
+                                        {
+                                          printf("Respuesta Incorrecta!\n");
+                                          printf("\n");
+                                          puntuacion=puntuacion-1;
+                                        }
+                                     }
 
-                                                          printf("*********************\n");
-                                                          printf("Resultado final: %d/%d\n", puntuacion, numerodepreguntas1);
-                                                          printf("*********************\n");
+                                     printf("*********************\n");
+                                     printf("Resultado final: %d/%d\n", puntuacion, numerodepreguntas1);
+                                     printf("*********************\n");
 
-                                                          if(puntuacion>=5)
-                                                          {
-                                                            printf("Has aprobado, pasa a la siguiente dificultad.\n");
-                                                          }
-                                                          else
-                                                          {
-                                                            printf("Has suspendido, repite el examen.\n");
-                                                          }
-						         system ("pause");
-							 break;
+                                    if(puntuacion>=5)
+                                    {
+                                    printf("Has aprobado, pasa a la siguiente dificultad.\n");
+                                    }
+                                    else
+                                    {
+                                     printf("Has suspendido, repite el examen.\n");
+                                    }
+							        system ("pause");
+							break;
 
 							case 2: //Dificultad media
 							   system ("cls");
 							   fflush(stdin);
 							   puntuacion=0;
 							   printf("Has seleccionado jugar en dificultad media\n");
-							   for(int i = 0; i < numerodepreguntas2; i++)
-                                                           {
-                                                             printf("%s\n", preguntas2[i]);
+							         for(int i = 0; i < numerodepreguntas2; i++)
+                                     {
+                                        printf("%s\n", preguntas2[i]);
 
-                                                               for(int j = (i * 4); j < (i * 4) + 4; j++)
-                                                               {
-                                                                 printf("%s\n", opciones2[j]);
-                                                               }
+                                        for(int j = (i * 4); j < (i * 4) + 4; j++)
+                                        {
+                                           printf("%s\n", opciones2[j]);
+                                        }
 
-                                                               printf("adivina: ");
-                                                               scanf("%c", &adivina);
-                                                               scanf("%c");
+                                           printf("adivina: ");
+                                           scanf("%c", &adivina);
+                                           scanf("%c");
 
-                                                               adivina = toupper(adivina);
+                                           adivina = toupper(adivina);
 
-                                                               if(adivina == respuestas2[i])
-                                                               {
-                                                                 printf("Respuesta Correcta!\n");
-                                                                 printf("\n");
-                                                                 puntuacion++;
-                                                               }
-                                                               else
-                                                               {
-                                                               printf("Respuesta Incorrecta!\n");
-                                                               printf("\n");
-                                                               puntuacion=puntuacion-1;
-                                                               }
-                                                          }
+                                        if(adivina == respuestas2[i])
+                                        {
+                                          printf("Respuesta Correcta!\n");
+                                          printf("\n");
+                                          puntuacion++;
+                                        }
+                                        else
+                                        {
+                                          printf("Respuesta Incorrecta!\n");
+                                          printf("\n");
+                                          puntuacion=puntuacion-1;
 
-                                                          printf("*********************\n");
-                                                          printf("Resultado final: %d/%d\n", puntuacion, numerodepreguntas2);
-                                                          printf("*********************\n");
+                                        }
+                                     }
 
-                                                          if(puntuacion>=3)
-                                                          {
-                                                            printf("Has aprobado, pasa a la siguiente dificultad.\n");
-                                                          }
-                                                          else
-                                                          {
-                                                            printf("Has suspendido, repite el examen.\n");
-                                                          }
-                                                          system ("pause");
-                                                          break;
+                                     printf("*********************\n");
+                                     printf("Resultado final: %d/%d\n", puntuacion, numerodepreguntas2);
+                                     printf("*********************\n");
+
+                                    if(puntuacion>=3)
+                                    {
+                                    printf("Has aprobado, pasa a la siguiente dificultad.\n");
+                                    }
+                                    else
+                                    {
+                                     printf("Has suspendido, repite el examen.\n");
+                                    }
+							        system ("pause");
+							break;
 
 							case 3: //Dificultad alta
 							   system ("cls");
 							   fflush(stdin);
 							   puntuacion=0;
 							   printf("Has seleccionado jugar en dificultad alta\n");
-							   for(int i = 0; i < numerodepreguntas3; i++)
-                                                           {
-                                                              printf("%s\n", preguntas3[i]);
+							         for(int i = 0; i < numerodepreguntas3; i++)
+                                     {
+                                        printf("%s\n", preguntas3[i]);
 
-                                                               for(int j = (i * 4); j < (i * 4) + 4; j++)
-                                                               {
-                                                               printf("%s\n", opciones3[j]);
-                                                               }
+                                        for(int j = (i * 4); j < (i * 4) + 4; j++)
+                                        {
+                                           printf("%s\n", opciones3[j]);
+                                        }
 
-                                                               printf("adivina: ");
-                                                               scanf("%c", &adivina);
-                                                               scanf("%c");
+                                           printf("adivina: ");
+                                           scanf("%c", &adivina);
+                                           scanf("%c");
 
-                                                               adivina = toupper(adivina);
+                                           adivina = toupper(adivina);
 
-                                                               if(adivina == respuestas3[i])
-                                                               {
-                                                               printf("Respuesta Correcta!\n");
-                                                               printf("\n");
-                                                               puntuacion++;
-                                                               }
-                                                               else
-                                                               {
-                                                               printf("Respuesta Incorrecta!\n");
-                                                               printf("\n");
-                                                               puntuacion=puntuacion-1;
-                                                               }
-                                                          }
+                                        if(adivina == respuestas3[i])
+                                        {
+                                          printf("Respuesta Correcta!\n");
+                                          printf("\n");
+                                          puntuacion++;
+                                        }
+                                        else
+                                        {
+                                          printf("Respuesta Incorrecta!\n");
+                                          printf("\n");
+                                          puntuacion=puntuacion-1;
 
-                                                          printf("*********************\n");
-                                                          printf("Resultado final: %d/%d\n", puntuacion, numerodepreguntas3);
-                                                          printf("*********************\n");
+                                        }
+                                     }
 
-                                                          if(puntuacion>10)
-                                                          {
-                                                            printf("Has aprobado, pasa a la siguiente dificultad.\n");
-                                                          }
-                                                          else
-                                                          {
-                                                          printf("Has suspendido, repite el examen.\n");
-                                                          }
-                                                          system ("pause");
-                                                          break;
+                                     printf("*********************\n");
+                                     printf("Resultado final: %d/%d\n", puntuacion, numerodepreguntas3);
+                                     printf("*********************\n");
+
+                                    if(puntuacion>10)
+                                    {
+                                    printf("Has aprobado, pasa a la siguiente dificultad.\n");
+                                    }
+                                    else
+                                    {
+                                     printf("Has suspendido, repite el examen.\n");
+                                    }
+							        system ("pause");
+							break;
 
 							case 4: //volver al menu inicial
-							  break;
+							break;
 
-						  } //switch opcion 2
+						    } //switch opcion 2
 						}while(opcion2 != 4);
+		            //FINAL DEL PROGRAMA
 					}
 					else
 					{
@@ -388,21 +396,21 @@ int main (void)
 				for (i = 0, exito = false; i < N; i++)
 
 				if (strcmp(user[i].username, leer_nombre) == 0 && strcmp(user[i].password, leer_clave) == 0 && user[i].registrado == true)
-				{
-				   strcpy(user[i].username, "admin");
-				   strcpy(user[i].password, "0000");
-				   user[i].registrado = 0;
-				   printf("\n -> Usuario eliminado.\n -> ");
-				   exito = true;
-				   system ("pause");
-				   break;
-				}
+				    {
+				    	strcpy(user[i].username, "admin");
+				    	strcpy(user[i].password, "0000");
+				    	user[i].registrado = 0;
+				    	printf("\n -> Usuario eliminado.\n -> ");
+				    	exito = true;
+				    	system ("pause");
+				    	break;
+					}
 				if (exito==false)
-			        {
-				    printf("\n -> Usuario no encontrado.\n -> ");
-				    exito = false;
-		   		    system("pause");
-				}
+					{
+						printf("\n -> Usuario no encontrado.\n -> ");
+						exito = false;
+						system("pause");
+					}
 			break;
 		}//switch
 	}while(opcion1 != 4);
@@ -417,9 +425,6 @@ int main (void)
 }
 
 
-
-
-//FUNCIONES
 
 void WelcomeScapeRoom()
 {
@@ -439,7 +444,8 @@ void WelcomeScapeRoom()
 	 	   putchar(c);
 	}
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 void PuertaScape()
 {
 	int c;
@@ -460,72 +466,73 @@ void PuertaScape()
 	 	  putchar(c);
 	}
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 void InicioJuego()
 {
-  int c;
+	int c;
 
-  system ("cls");
-  system ("color E");
+	system ("cls");
+	system ("color E");
 
-  fd = fopen("InicioJuego.txt", "r");
+	fd = fopen("InicioJuego.txt", "r");
 
-  if (fd == NULL)
-  printf("\nEl fichero no pudo ser abierto.");
+	if (fd == NULL)
+	  printf("\nEl fichero no pudo ser abierto.");
 
-  while ((c = getc(fd)) != EOF)
-  {
-     if (c == '\n')
-	printf("\n");
+	while ((c = getc(fd)) != EOF)
+	{
+		if (c == '\n')
+		  printf("\n");
 
-     else if( c== '\0')
-        printf("\0");
+		else if( c== '\0')
+		  printf("\0");
 
-     else
-        putchar(c);
-   }
+		else
+		  putchar(c);
+	}
 
-   printf("\n\n");
-   system ("pause");
+	printf("\n\n");
+	system ("pause");
 }
 
 
 void Hora()
 {
-  time_t t;
-  struct tm *tm;
-  char fecha_dia[100];
-  t = time(NULL);
-  tm = localtime(&t);
-  strftime(fecha_dia, 100, "%d/%m/%Y", tm);
-  printf("\n Fecha actual: %s", fecha_dia);
+	time_t t;
+	struct tm *tm;
+	char fecha_dia[100];
+	t = time(NULL);
+	tm = localtime(&t);
+	strftime(fecha_dia, 100, "%d/%m/%Y", tm);
+	printf("\n Fecha actual: %s", fecha_dia);
 }
 
 
 void registrar_usuario(usuario *u)
 {
-  printf("\n -Introduzca nombre de usuario: ");
-  fflush(stdin);
-  gets(u->username);
-  printf("\n\n -Introduzca una contrase%ca: ",164);
-  gets(u->password);
-  u->registrado=true;
+	printf("\n -Introduzca nombre de usuario: ");
+	fflush(stdin);
+	gets(u->username);
+	printf("\n\n -Introduzca una contrase%ca: ",164);
+	gets(u->password);
+	u->registrado=true;
 }
 
 
 int validar_usuario(char nombre[],char clave[],usuario *u)
 {
-  if((strcmp(nombre,u->username) == 0) && (strcmp(clave,u->password) == 0))
-     return 1;
-  else
-     return 0;
+	if((strcmp(nombre,u->username) == 0) && (strcmp(clave,u->password) == 0))
+	    return 1;
+	else
+    	return 0;
 }
 
 
 void Menu_Inicial ()  //Menu de registro de usuario
 {
-  system ("cls");
-  Hora();
+	system ("cls");
+	Hora();
     printf ("\n\n Bienvenido a SCAPE ROOM. Seleccione una opci%cn:\n ",162) ;
     printf ("\n  1) Usuario ya registrado.");
     printf ("\n  2) Registrar un nuevo usuario.");
@@ -537,60 +544,60 @@ void Menu_Inicial ()  //Menu de registro de usuario
 
 void introducir_datos_programa (usuario u[],int dim)
 {
-  int i;
-  char nombre[M];
-  char clave[M];
-  int reg;
+	int i;
+	char nombre[M];
+	char clave[M];
+	int reg;
 
-  FILE *entrada = fopen("DATOS_DE_USUARIO.txt","r");
+	FILE *entrada = fopen("DATOS_DE_USUARIO.txt","r");
 
-  if(entrada == NULL)
+	if(entrada == NULL)
 		printf("\n No se pudo abrir el fichero.\n");
-  else
-  {
-     while(!feof(entrada))
-     {
-        for(i=0; i<dim; i++)
-        {
-	   fscanf(entrada, "%d %s %s\n", &reg, nombre, clave);
+	else
+	{
+		while(!feof(entrada))
+		{
+			for(i=0; i<dim; i++)
+			{
+				fscanf(entrada, "%d %s %s\n", &reg, nombre, clave);
 
-	   if(reg==1)
-	   {
-         	u[i].registrado = reg;
-		strcpy(u[i].username, nombre);
-		strcpy(u[i].password, clave);
-       	   }
-     	   else
-	   {
-		u[i].registrado = 0;
-		strcpy(u[i].username, "admin");
-		strcpy(u[i].password, "0000");
-    	   }
-        }
-     }
-  }
-  fclose(entrada);
+				if(reg==1)
+				{
+					u[i].registrado = reg;
+					strcpy(u[i].username, nombre);
+					strcpy(u[i].password, clave);
+				}
+				else
+				{
+					u[i].registrado = 0;
+					strcpy(u[i].username, "admin");
+					strcpy(u[i].password, "0000");
+				}
+			}
+		}
+	}
+	fclose(entrada);
 }
 
 
 void introducir_datos_fichero (usuario u[])
 {
-  int i;
+	int i;
 
-  FILE *salida=fopen("DATOS_DE_USUARIO2.txt", "w");
+	FILE *salida=fopen("DATOS_DE_USUARIO2.txt", "w");
 
-  if(salida == NULL)
-    printf("\nEl fichero no pudo ser abierto.\n");
-  else
-  {
-    for(i=0; i<N; i++)
-    {
-     if (u[i].registrado == true)
-       fprintf(salida, "%d %s %s\n", u[i].registrado, u[i].username, u[i].password);
+	if(salida == NULL)
+		printf("\nEl fichero no pudo ser abierto.\n");
+	else
+	{
+		for(i=0; i<N; i++)
+		{
+			if (u[i].registrado == true)
+				fprintf(salida, "%d %s %s\n", u[i].registrado, u[i].username, u[i].password);
 
-     if (u[i].registrado == false)
-       fprintf(salida, "%d ----- -----\n", u[i].registrado);
-     }
-   }
-    fclose(salida);
+			if (u[i].registrado == false)
+				fprintf(salida, "%d ----- -----\n", u[i].registrado);
+		}
+	}
+    	fclose(salida);
 }
