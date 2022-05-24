@@ -14,4 +14,4 @@ Alvaro Requena Porcuna [(alvaroorequena)](https://github.com/alvaroorequenaa)
 
 ## Objetivos del trabajo
 
-Crear una sala de Scape donde el jugador eliga el nivel de dificultad al que quiera jugas y mostrarle las diferentes salas y las actividades que tendra que resolver para poder continuar y poder ganar el jueg. Ademas de mostrarle las diferentes salas que debera pasar para completar el juego.
+Crear una sala de Scape donde el jugador eliga el nivel de dificultad al que quiera jugas y mostrarle las diferentes salas y las actividades que tendra que resolver para poder continuar y poder ganar el juego. Ademas de mostrarle las diferentes salas que debera pasar para completar el juego.
