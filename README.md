@@ -10,7 +10,7 @@ Jose Luis Torres Garcia [(Cholis2020)](https://github.com/Cholis2020)
 
 Javier Luengo Garcia [(Luengo10)](https://github.com/luengo10)
 
-Alvaro Requena Porcuna [(alvaroorequena)](https://github.com/alvaroorequena)
+Alvaro Requena Porcuna [(alvaroorequena)](https://github.com/alvaroorequenaa)
 
 ## Objetivos del trabajo
 
