@@ -4,7 +4,7 @@ Vamos a realizar una sala de Scape Room donde los jugadores se tendran que enfre
 
 ## Integrantes del equipo
 
-Ines Melendez del Pozo ; (https://github.com/InesMelendez)
+Ines Melendez del Pozo ([(InesMelendez)]https://github.com/InesMelendez)
 
 Jose Luis Torres Garcia; Cholis2020
 
