@@ -184,9 +184,9 @@ int main (void)
 					        Hora();
 						PuertaScape();
 				                printf ("\n\n                                                                          -- Bienvenido  a SCAPE ROOM --\n\n Seleccione una opci%cn: \n",162);
-				                printf ("\n 1. Dificultad baja.");
-				                printf ("\n 2. Dificultad media.");
-						printf ("\n 3. Dificultas Alta");
+				                printf ("\n 1. Dificultad Baja.");
+				                printf ("\n 2. Dificultad Media.");
+						printf ("\n 3. Dificultad Alta");
 				                printf ("\n 4. Volver al menu principal.");
 
 	                                        printf("\n   Opci%cn elegida: ",162);
