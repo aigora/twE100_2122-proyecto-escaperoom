@@ -30,8 +30,8 @@ void introducir_datos_fichero (usuario []);
 
 void Hora(); //Funcion para mostrar la hora en pantalla
 
-void WelcomeScapeRoom(); // Welcome to TMT
-void PuertaScape(); // Dibujo del almacen
+void WelcomeScapeRoom(); // Welcome to Scape Room
+void PuertaScape(); 
 void InicioJuego();
 
 
@@ -149,7 +149,7 @@ int main (void)
 		switch (opcion1)
 		{
 			case 1: //USUARIO YA REGISTRAD0
-				intentos = 3; //3 intentos para introducir datos
+				intentos = 3; 
 				es_usuario = 0;
 
 				do
@@ -429,7 +429,7 @@ int main (void)
 void WelcomeScapeRoom()
 {
 	int c;
-	fd = fopen("WelcomeScapeRoom.txt", "r"); // imagen TMT
+	fd = fopen("WelcomeScapeRoom.txt", "r");
 
 	if (fd == NULL)
 	  printf("\n Archivo no encontrado.");
