@@ -1,39 +1,21 @@
-#include <stdio.h>
+#include <stdio.h> 
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
 #include <ctype.h>
+//Librerias Propias
+#include "LibreriaDibujos.h"  //Incluye todas las funciones de dibujo de ficheros.
+#include "LibreriaUsuarios.h" //Incluye todas las funciones de registro/acceso de usuario.
 
-#define M 20 // Numero maximo de caracteres para el nombre de usuario y contraseña
-#define N 5 // Numero maximo de usuarios
+#define M 20  //Numero maximo de caracteres para el nombre de uruario y contraseñá.
+#define N 5  //Numero maximo de usuarios
 
-FILE  *fd;//ficheros de dibujo
-
-//ESTRUCTURAS
-struct RegistroUsuario
-{
-	bool registrado;
-	char username[M];
-	char password[M];
-};
-
-typedef struct RegistroUsuario usuario;
 
 
 
 //CABECERAS DE FUNCIONES
-void Menu_Inicial (); //Menu de registro de usuario
-void registrar_usuario (usuario *); //Funcion para registrar nuevos usuarios
-int  validar_usuario (char [], char [], usuario *); //Funcion para comprobar que el usuario esta registrado
-void introducir_datos_programa (usuario [], int dim);
-void introducir_datos_fichero (usuario []);
-
-void Hora(); //Funcion para mostrar la hora en pantalla
-
-void WelcomeScapeRoom(); // Welcome to Scape Room
-void PuertaScape(); 
-void InicioJuego();
-
+void Menu_Inicial (); //Muestra el menu de registro de usuario.
+void Hora(); //Funcion para mostrar la hora en pantalla.
 
 
 int main (void)
@@ -44,18 +26,17 @@ int main (void)
 	int k=0;
 	bool exito;
 
-    
 	int opcion1; //Menu de usuarios
-        int opcion2; //menu opciones
+    int opcion2; //menu opciones
 
-	//REGISTRO DE USUARIO
+	//Registro usuario
 	char leer_nombre[M];
 	char leer_clave[M];
 	usuario user[N];
 	int es_usuario = 0;
 	int intentos=3;
 
-	
+
 	char preguntas1[][100] = {"1. Cuando se llego a America por primera vez?: ",
                             "2. En que siglo se escribio la Celestina?:",
                             "3. Cual es la capital de Italia?:",
@@ -64,7 +45,7 @@ int main (void)
                             "6. Cual es el futbolista con mas balones de oro?:",
                             "7. Cuanto duro La Guerra de los Cien Anos"};
 
-        char opciones1[][100] = {"A. 1492", "B. 1942", "C. 1932", "D. 1432",
+    char opciones1[][100] = {"A. 1492", "B. 1942", "C. 1932", "D. 1432",
                             "A. XV", "B. XII", "C. XVI", "D. XX",
                             "A. Madrid", "B. Roma", "C. Venecia", "D. Palermo",
                             "A. Escaleno", "B. Obstusangulo", "C. Equilatero", "D. Isosceles",
@@ -136,7 +117,7 @@ int main (void)
 	system("color E");
 	WelcomeScapeRoom();
 	system("\n\n PAUSE");
-	for (i=0; i<N; i++) 
+	for (i=0; i<N; i++)  
 	   introducir_datos_programa(user, N);
 	system("color E");
 
@@ -148,8 +129,8 @@ int main (void)
 
 		switch (opcion1)
 		{
-			case 1: //USUARIO YA REGISTRAD0
-				intentos = 3; 
+			case 1: //USUARIO YA REGISTRO0
+				intentos = 3; //3 intentos para introducir datos
 				es_usuario = 0;
 
 				do
@@ -168,7 +149,7 @@ int main (void)
 					for(i=0; i<N && es_usuario==0 && intentos!=0; i++)
 					{
 					   es_usuario = validar_usuario(leer_nombre, leer_clave, &user[i]);
-				        }
+				    }
 
 
 					if(es_usuario == 1) //SI EL USUARIO INTRODUCIDO ES CORRECTO ACCEDEMOS AL PROGRAMA
@@ -179,28 +160,29 @@ int main (void)
 						InicioJuego();
 						do
 						{
-					        system ("cls");
-					        system("color 0");
-					        Hora();
-						PuertaScape();
-				                printf ("\n\n                                                                          -- Bienvenido  a SCAPE ROOM --\n\n Seleccione una opci%cn: \n",162);
-				                printf ("\n 1. Dificultad Baja.");
-				                printf ("\n 2. Dificultad Media.");
-						printf ("\n 3. Dificultad Alta");
-				                printf ("\n 4. Volver al menu principal.");
+					      system ("cls");
+					      system("color 0");
+						  PuertaEscape();
+						  Hora();
+				          printf ("\n\n                                   -- Bienvenido  a ESCAPE ROOM --\n\n Seleccione una opci%cn: \n",162);
+				          printf ("\n 1. Dificultad Baja.");
+				          printf ("\n 2. Dificultad Media.");
+						  printf ("\n 3. Dificultad Alta");
+				          printf ("\n 4. Volver al menu principal.");
 
-	                                        printf("\n   Opci%cn elegida: ",162);
-					        scanf("%d",&opcion2);
+	                      printf("\n   Opci%cn elegida: ",162);
+					      scanf("%d",&opcion2);
 
 						switch (opcion2)
-							{
+						{
 							case 1: //Dificultad baja
+							
 							   system ("cls");
 							   fflush(stdin);
 							   puntuacion=0;
 							   printf("Has seleccionado jugar en dificultad baja\n");
-							         for(int i = 0; i < numerodepreguntas1; i++)
-                                     {
+							        for(int i = 0; i < numerodepreguntas1; i++)
+                                    {
                                         printf("%s\n", preguntas1[i]);
 
                                         for(int j = (i * 4); j < (i * 4) + 4; j++)
@@ -224,7 +206,6 @@ int main (void)
                                         {
                                           printf("Respuesta Incorrecta!\n");
                                           printf("\n");
-                                          puntuacion=puntuacion-1;
                                         }
                                      }
 
@@ -234,7 +215,7 @@ int main (void)
 
                                     if(puntuacion>=5)
                                     {
-                                    printf("Has aprobado, pasa a la siguiente dificultad.\n");
+                                    printf("Has aprobado, pasa al siguiente nivel de dificultad.\n");
                                     }
                                     else
                                     {
@@ -273,8 +254,6 @@ int main (void)
                                         {
                                           printf("Respuesta Incorrecta!\n");
                                           printf("\n");
-                                          puntuacion=puntuacion-1;
-
                                         }
                                      }
 
@@ -323,7 +302,6 @@ int main (void)
                                         {
                                           printf("Respuesta Incorrecta!\n");
                                           printf("\n");
-                                          puntuacion=puntuacion-1;
 
                                         }
                                      }
@@ -378,7 +356,7 @@ int main (void)
 				{
 				  printf("\n -> Acci%cn no valida. Se ha registrado el maximo numero de usuarios.\n ->",162);
 				  system ("pause");
-			    }
+			        }
 
 				break;
 
@@ -425,110 +403,6 @@ int main (void)
 }
 
 
-
-void WelcomeScapeRoom()
-{
-	int c;
-	fd = fopen("WelcomeScapeRoom.txt", "r");
-
-	if (fd == NULL)
-	  printf("\n Archivo no encontrado.");
-
-    while((c = getc(fd)) != EOF)
-	{
-	 	if (c == '\n')
-	 	   printf("\n");
-	 	else if (c == '\0')
-	 	   printf("\0");
-	 	else
-	 	   putchar(c);
-	}
-}
-
-
-void PuertaScape()
-{
-	int c;
-	fd = fopen("PuertaScape.txt", "r");
-
-	if (fd == NULL)
-	  printf("\nNo se pudo encontrar el archivo.");
-
-	 while((c = getc(fd)) != EOF)
-	{
-	 	if (c == '\n')
-	 	  printf("\n");
-
-	 	else if (c == '\0')
-	 	  printf("\0");
-
-	 	else
-	 	  putchar(c);
-	}
-}
-
-
-void InicioJuego()
-{
-	int c;
-
-	system ("cls");
-	system ("color E");
-
-	fd = fopen("InicioJuego.txt", "r");
-
-	if (fd == NULL)
-	  printf("\nEl fichero no pudo ser abierto.");
-
-	while ((c = getc(fd)) != EOF)
-	{
-		if (c == '\n')
-		  printf("\n");
-
-		else if( c== '\0')
-		  printf("\0");
-
-		else
-		  putchar(c);
-	}
-
-	printf("\n\n");
-	system ("pause");
-}
-
-
-void Hora()
-{
-	time_t t;
-	struct tm *tm;
-	char fecha_dia[100];
-	t = time(NULL);
-	tm = localtime(&t);
-	strftime(fecha_dia, 100, "%d/%m/%Y", tm);
-	printf("\n Fecha actual: %s", fecha_dia);
-}
-
-
-void registrar_usuario(usuario *u)
-{
-	printf("\n -Introduzca nombre de usuario: ");
-	fflush(stdin);
-	gets(u->username);
-	printf("\n\n -Introduzca una contrase%ca: ",164);
-	gets(u->password);
-	u->registrado=true;
-}
-
-
-int validar_usuario(char nombre[],char clave[],usuario *u)
-{
-	if((strcmp(nombre,u->username) == 0) && (strcmp(clave,u->password) == 0))
-	    return 1;
-	else
-    	return 0;
-}
-
-
 void Menu_Inicial ()  //Menu de registro de usuario
 {
 	system ("cls");
@@ -541,63 +415,13 @@ void Menu_Inicial ()  //Menu de registro de usuario
     printf ("\n\n Elija una opci%cn: ",162);
 }
 
-
-void introducir_datos_programa (usuario u[],int dim)
+void Hora()
 {
-	int i;
-	char nombre[M];
-	char clave[M];
-	int reg;
-
-	FILE *entrada = fopen("DATOS_DE_USUARIO.txt","r");
-
-	if(entrada == NULL)
-		printf("\n No se pudo abrir el fichero.\n");
-	else
-	{
-		while(!feof(entrada))
-		{
-			for(i=0; i<dim; i++)
-			{
-				fscanf(entrada, "%d %s %s\n", &reg, nombre, clave);
-
-				if(reg==1)
-				{
-					u[i].registrado = reg;
-					strcpy(u[i].username, nombre);
-					strcpy(u[i].password, clave);
-				}
-				else
-				{
-					u[i].registrado = 0;
-					strcpy(u[i].username, "admin");
-					strcpy(u[i].password, "0000");
-				}
-			}
-		}
-	}
-	fclose(entrada);
-}
-
-
-void introducir_datos_fichero (usuario u[])
-{
-	int i;
-
-	FILE *salida=fopen("DATOS_DE_USUARIO2.txt", "w");
-
-	if(salida == NULL)
-		printf("\nEl fichero no pudo ser abierto.\n");
-	else
-	{
-		for(i=0; i<N; i++)
-		{
-			if (u[i].registrado == true)
-				fprintf(salida, "%d %s %s\n", u[i].registrado, u[i].username, u[i].password);
-
-			if (u[i].registrado == false)
-				fprintf(salida, "%d ----- -----\n", u[i].registrado);
-		}
-	}
-    	fclose(salida);
+	time_t t;
+	struct tm *tm;
+	char fecha_dia[100];
+	t = time(NULL);
+	tm = localtime(&t);
+	strftime(fecha_dia, 100, "%d/%m/%Y", tm);
+	printf("\n Fecha actual: %s", fecha_dia);
 }
