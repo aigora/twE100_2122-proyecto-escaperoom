@@ -3,6 +3,8 @@
 #include <time.h>
 #include <string.h>
 #include <ctype.h>
+#include<stdbool.h>
+
 //Librerias Propias
 #include "LibreriaDibujos.h"  //Incluye todas las funciones de dibujo de ficheros.
 #include "LibreriaUsuarios.h" //Incluye todas las funciones de registro/acceso de usuario.
