@@ -1,17 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-FILE  *fd;
 
 void WelcomeScapeRoom()
 {
-	int c;
-	fd = fopen("WelcomeScapeRoom.txt", "r"); 
+	FILE  *fd1;
 
-	if (fd == NULL)
+	int c;
+	fd1 = fopen("WelcomeScapeRoom.txt", "r"); 
+
+	if (fd1 == NULL)
 	  printf("\n Archivo no encontrado.");
 
-    while((c = getc(fd)) != EOF)
+    while((c = getc(fd1)) != EOF)
 	{
 	 	if (c == '\n')
 	 	   printf("\n");
@@ -24,13 +25,14 @@ void WelcomeScapeRoom()
 
 void PuertaEscape()
 {
+	FILE  *fd2;
 	int c;
-	fd = fopen("PuertaEscape.txt", "r");
+	fd2 = fopen("PuertaEscape.txt", "r");
 
-	if (fd == NULL)
+	if (fd2 == NULL)
 	  printf("\nNo se pudo encontrar el archivo.");
 
-	 while((c = getc(fd)) != EOF)
+	 while((c = getc(fd2)) != EOF)
 	{
 	 	if (c == '\n')
 	 	  printf("\n");
@@ -45,17 +47,19 @@ void PuertaEscape()
 
 void InicioJuego()
 {
+	FILE  *fd3;
+
 	int c;
 
 	system ("cls");
 	system ("color E");
 
-	fd = fopen("InicioJuego.txt", "r");
+	fd3 = fopen("InicioJuego.txt", "r");
 
-	if (fd == NULL)
+	if (fd3 == NULL)
 	  printf("\nEl fichero no pudo ser abierto.");
 
-	while ((c = getc(fd)) != EOF)
+	while ((c = getc(fd3)) != EOF)
 	{
 		if (c == '\n')
 		  printf("\n");
